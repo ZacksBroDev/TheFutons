@@ -897,10 +897,10 @@ h1 {
 
 input,
 textarea {
-  background: var(--gray-light);
+  background: transparent;
   font-size: 16px;
   border-radius: 12px;
-  border: 2px solid transparent;
+  border: 2px solid var(--accent);
   width: 100%;
   padding: 1rem 1.25rem;
   box-sizing: border-box;
@@ -911,13 +911,13 @@ textarea {
 
 input::placeholder,
 textarea::placeholder {
-  color: #999;
+  color: transparent;
 }
 
 input:focus,
 textarea:focus {
   outline: none;
-  border-color: var(--accent);
+  border-color: var(--accent-light);
   background: var(--white);
   box-shadow: 0 0 0 4px rgba(108, 92, 231, 0.15);
 }
@@ -951,9 +951,61 @@ textarea:focus {
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
   width: 100%;
   box-sizing: border-box;
+}
+
+/* Floating Label Input Group */
+.input-group {
+  position: relative;
+  width: 100%;
+}
+
+.floating-label {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 0.35rem;
+  font-size: 1rem;
+  color: #666;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+/* When input is focused or has content, float the label up */
+.input-group input:focus~.floating-label,
+.input-group input:valid~.floating-label,
+.input-group input:not(:placeholder-shown)~.floating-label {
+  top: 0;
+  transform: translateY(-50%);
+  font-size: 0.8rem;
+  color: var(--accent);
+  background: var(--white);
+}
+
+/* Textarea group adjustments */
+.textarea-group .floating-label {
+  top: 1.25rem;
+  transform: translateY(0);
+}
+
+.textarea-group textarea:focus~.floating-label,
+.textarea-group textarea:valid~.floating-label,
+.textarea-group textarea:not(:placeholder-shown)~.floating-label {
+  top: 0;
+  transform: translateY(-50%);
+  font-size: 0.8rem;
+  color: var(--accent);
+  background: var(--white);
+}
+
+.contact-label {
+  font-weight: 600;
+  color: var(--black);
+  translate: transform(50px, 50px);
 }
 
 /* links styles */
@@ -1011,13 +1063,27 @@ textarea:focus {
   }
 
   .contact-form {
-    gap: 0.875rem;
+    gap: 1rem;
   }
 
   input,
   textarea {
     font-size: 16px;
     padding: 0.875rem 1rem;
+  }
+
+  .floating-label {
+    left: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .input-group input:focus~.floating-label,
+  .input-group input:valid~.floating-label,
+  .input-group input:not(:placeholder-shown)~.floating-label,
+  .textarea-group textarea:focus~.floating-label,
+  .textarea-group textarea:valid~.floating-label,
+  .textarea-group textarea:not(:placeholder-shown)~.floating-label {
+    font-size: 0.75rem;
   }
 
   #title {

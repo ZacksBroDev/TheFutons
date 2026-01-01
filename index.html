@@ -440,11 +440,32 @@ I'll Be Attending This Event</textarea>
           value="Contact Form From The Futons">
           <input type="hidden" name="access_key" value="e572cbd3-6837-4195-bc58-8b446a06c8cc" />
           <h1 id="title">CONTACT US</h1>
-          <input id="name" type="text" name="name" placeholder="Name" />
-          <input id="email" type="email" name="email" placeholder="Email" />
-          <input type="tel" id="phone" name="phone" placeholder="Number" />
-          <input id="subject" type="text" name="subject" placeholder="Subject" />
-          <textarea id="message" name="message" placeholder="Message"></textarea>
+
+          <div class="input-group">
+            <input id="name" type="text" name="name" required />
+            <label for="name" class="floating-label">Name</label>
+          </div>
+
+          <div class="input-group">
+            <input id="email" type="email" name="email" required />
+            <label for="email" class="floating-label">Email</label>
+          </div>
+
+          <div class="input-group">
+            <input type="tel" id="phone" name="phone" required />
+            <label for="phone" class="floating-label">Phone</label>
+          </div>
+
+          <div class="input-group">
+            <input id="subject" type="text" name="subject" required />
+            <label for="subject" class="floating-label">Subject</label>
+          </div>
+
+          <div class="input-group textarea-group">
+            <textarea id="message" name="message" required></textarea>
+            <label for="message" class="floating-label">Message</label>
+          </div>
+
           <button id="submit" class="btn" id="login-btn">Submit</button>
         </form>
       </div>
