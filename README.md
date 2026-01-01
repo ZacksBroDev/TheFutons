@@ -70,3 +70,4 @@ This is a static website that can be deployed to any hosting service:
 ## License
 
 © 2025 The Futons. Developed by ZackFullStack
+
