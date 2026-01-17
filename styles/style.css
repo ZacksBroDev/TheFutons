@@ -440,7 +440,7 @@ header img:hover {
     padding: 2rem 1rem !important;
     height: 60vh !important;
     min-height: 500px !important;
-    background-position: calc(50% + 150px) 10% !important;
+    background-position: center center !important;
     background-size: cover !important;
   }
 
@@ -461,6 +461,12 @@ header img:hover {
 
   #title-btn {
     margin-top: 1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero {
+    background-position: calc(50% + 150px) 10% !important;
   }
 }
 
