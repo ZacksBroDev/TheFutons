@@ -1318,7 +1318,7 @@ textarea:focus {
 }
 
 /* Responsive Mobile Menu Display */
-@media (max-width: 800px) {
+@media (max-width: 786px) {
   .menu-trigger {
     display: flex !important;
     flex-direction: column;
