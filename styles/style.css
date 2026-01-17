@@ -2789,6 +2789,10 @@ nav .admin-link:hover {
     height: 250px;
   }
 
+  .member-image img {
+    object-position: center 30%;
+  }
+
   .member-content {
     text-align: left;
   }
