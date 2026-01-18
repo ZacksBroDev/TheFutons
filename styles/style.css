@@ -467,6 +467,29 @@ header img:hover {
 @media (max-width: 500px) {
   .hero {
     background-position: calc(50% + 150px) 10% !important;
+    height: 100vh !important;
+    min-height: 600px !important;
+  }
+
+  .hero-content {
+    padding: 2rem 1rem;
+  }
+
+  .hero-content h2 {
+    font-size: 0.9rem;
+    margin: 1rem 0;
+  }
+
+  #title-img {
+    width: 120px !important;
+  }
+
+  .section {
+    margin: 1rem auto !important;
+  }
+
+  .wrapper {
+    padding: 0 0.5rem;
   }
 }
 
