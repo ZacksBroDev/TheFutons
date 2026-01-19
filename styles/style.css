@@ -172,11 +172,11 @@ footer {
 
 /* Other */
 .btn {
-  width: 200px;
-  height: 20px;
+  width: 180px;
+  height: 18px;
   background: var(--gradient-primary);
   color: var(--white);
-  padding: 1rem;
+  padding: 0.75rem 1rem;
   margin-top: 1rem;
   display: inline-block;
   text-decoration: none;
@@ -190,6 +190,7 @@ footer {
   letter-spacing: 0.5px;
   position: relative;
   overflow: hidden;
+  font-size: 0.85rem;
 }
 
 .btn:before {
@@ -449,7 +450,7 @@ header img:hover {
   }
 
   .hero-content h2 {
-    font-size: 1rem;
+    font-size: 0.85rem;
   }
 
   .section {
@@ -461,6 +462,12 @@ header img:hover {
 
   #title-btn {
     margin-top: 1rem;
+  }
+
+  .btn {
+    width: 180px;
+    font-size: 0.85rem;
+    padding: 0.9rem;
   }
 }
 
@@ -476,7 +483,7 @@ header img:hover {
   }
 
   .hero-content h2 {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     margin: 1rem 0;
   }
 
@@ -490,6 +497,12 @@ header img:hover {
 
   .wrapper {
     padding: 0 0.5rem;
+  }
+
+  .btn {
+    width: 160px;
+    font-size: 0.75rem;
+    padding: 0.8rem;
   }
 }
 
