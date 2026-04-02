@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="The Futons live photo journal archive. Browse complete albums by room, date, and set." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="icon" type="image/png" href="assets/icons/Futons_Logo-04.PNG" />
+  <script src="assets/data/site-data.js" defer></script>
+  <title>The Futons | Journal Archive</title>
+</head>
+
+<body class="journal-page">
+  <div class="site-grain" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <a class="brand-lockup" href="index.html" aria-label="The Futons home">
+      <img src="assets/icons/Futons_Logo-04.PNG" alt="The Futons logo" />
+    </a>
+
+    <button class="menu-button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+      <a href="index.html#shows">Shows</a>
+      <a href="index.html#music">Music</a>
+      <a href="journal.html">Journal</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section-shell archive-hero" aria-labelledby="journal-archive-title">
+      <p class="eyebrow">Live archive</p>
+      <h1 id="journal-archive-title">Journal Archive</h1>
+      <p class="section-intro">
+        Every room captured in curated albums. Browse by venue, city, and date without cluttering the homepage.
+      </p>
+    </section>
+
+    <section class="section-shell archive-grid-wrap" aria-label="Photo album archive">
+      <div class="archive-grid" id="archive-grid">
+        <!-- Populated by script -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <img src="assets/icons/Futons_Logo-04.PNG" alt="The Futons logo" />
+    <p>© 2026 The Futons</p>
+    <a href="#top">Back to top</a>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const menuButton = document.querySelector('.menu-button');
+      const siteNav = document.querySelector('#site-nav');
+      if (menuButton && siteNav) {
+        menuButton.addEventListener('click', function () {
+          const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+          menuButton.setAttribute('aria-expanded', String(!expanded));
+          siteNav.classList.toggle('open');
+        });
+
+        siteNav.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () {
+            menuButton.setAttribute('aria-expanded', 'false');
+            siteNav.classList.remove('open');
+          });
+        });
+      }
+
+      const data = window.FutonsData || { journalAlbums: [], journalImages: [] };
+      const albums = data.journalAlbums
+        .filter(function (album) { return album.status === 'published'; })
+        .sort(function (a, b) { return new Date(b.date) - new Date(a.date); });
+
+      const albumImageCount = function (slug) {
+        return data.journalImages.filter(function (img) { return img.albumSlug === slug; }).length;
+      };
+
+      const coverFor = function (album) {
+        return data.journalImages.find(function (img) { return img.id === album.coverImageId; });
+      };
+
+      const archiveGrid = document.getElementById('archive-grid');
+      if (!archiveGrid) return;
+
+      archiveGrid.innerHTML = albums.map(function (album) {
+        const cover = coverFor(album);
+        if (!cover) return '';
+
+        const dateLabel = new Date(album.date).toLocaleDateString('en-US', {
+          month: 'short',
+          day: '2-digit',
+          year: 'numeric'
+        });
+
+        return '<article class="album-card stagger">'
+          + '<a class="album-card-link" href="album.html?slug=' + encodeURIComponent(album.slug) + '">'
+          + '<div class="album-media">'
+          + '<img src="' + cover.src + '" alt="' + cover.alt + '" loading="lazy" />'
+          + '</div>'
+          + '<div class="album-body">'
+          + '<p class="album-date">' + dateLabel + '</p>'
+          + '<h2>' + album.venue + '</h2>'
+          + '<p class="album-meta">' + (album.city || 'Location TBD') + ' · ' + albumImageCount(album.slug) + ' images</p>'
+          + '<p class="album-note">' + (album.caption || 'Live photo album') + '</p>'
+          + '</div>'
+          + '</a>'
+          + '</article>';
+      }).join('');
+    });
+  </script>
+</body>
+
+</html>

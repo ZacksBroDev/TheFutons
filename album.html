@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The Futons album detail view from the live journal archive." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="icon" type="image/png" href="assets/icons/Futons_Logo-04.PNG" />
+  <script src="assets/data/site-data.js" defer></script>
+  <title>The Futons | Album</title>
+</head>
+
+<body class="album-page">
+  <div class="site-grain" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <a class="brand-lockup" href="index.html" aria-label="The Futons home">
+      <img src="assets/icons/Futons_Logo-04.PNG" alt="The Futons logo" />
+    </a>
+
+    <button class="menu-button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+      <a href="index.html#shows">Shows</a>
+      <a href="index.html#music">Music</a>
+      <a href="journal.html">Journal</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section-shell album-header" id="album-header">
+      <!-- Populated by script -->
+    </section>
+
+    <section class="section-shell album-gallery-wrap">
+      <div class="album-gallery" id="album-gallery">
+        <!-- Populated by script -->
+      </div>
+    </section>
+
+    <section class="section-shell album-pager" id="album-pager">
+      <!-- Populated by script -->
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close image viewer">Close</button>
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous image">◀</button>
+    <figure class="lightbox-stage">
+      <img id="lightbox-image" src="" alt="" />
+      <figcaption id="lightbox-caption"></figcaption>
+    </figure>
+    <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next image">▶</button>
+  </div>
+
+  <footer class="site-footer">
+    <img src="assets/icons/Futons_Logo-04.PNG" alt="The Futons logo" />
+    <p>© 2026 The Futons</p>
+    <a href="#top">Back to top</a>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const menuButton = document.querySelector('.menu-button');
+      const siteNav = document.querySelector('#site-nav');
+      if (menuButton && siteNav) {
+        menuButton.addEventListener('click', function () {
+          const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+          menuButton.setAttribute('aria-expanded', String(!expanded));
+          siteNav.classList.toggle('open');
+        });
+        siteNav.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () {
+            menuButton.setAttribute('aria-expanded', 'false');
+            siteNav.classList.remove('open');
+          });
+        });
+      }
+
+      const data = window.FutonsData || { journalAlbums: [], journalImages: [] };
+      const query = new URLSearchParams(window.location.search);
+      const slug = query.get('slug');
+
+      const album = data.journalAlbums.find(function (item) {
+        return item.slug === slug && item.status === 'published';
+      }) || data.journalAlbums[0];
+
+      if (!album) return;
+
+      const albumImages = data.journalImages.filter(function (img) {
+        return img.albumSlug === album.slug;
+      });
+
+      document.title = 'The Futons | ' + album.venue;
+
+      const dateLabel = new Date(album.date).toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+      });
+
+      const header = document.getElementById('album-header');
+      header.innerHTML = '<a class="album-back" href="journal.html">Back to archive</a>'
+        + '<p class="eyebrow">Album detail</p>'
+        + '<h1>' + album.title + '</h1>'
+        + '<p class="album-header-meta">' + album.venue + ' · ' + (album.city || 'Location TBD') + ' · ' + dateLabel + '</p>'
+        + '<p class="album-header-note">' + (album.caption || 'Live set archive.') + '</p>';
+
+      const gallery = document.getElementById('album-gallery');
+      gallery.innerHTML = albumImages.map(function (img, index) {
+        const priority = index < 3 ? 'eager' : 'lazy';
+        return '<button class="album-tile" data-index="' + index + '">'
+          + '<img src="' + img.src + '" alt="' + img.alt + '" loading="' + priority + '" />'
+          + (img.caption ? '<span>' + img.caption + '</span>' : '')
+          + '</button>';
+      }).join('');
+
+      const allAlbums = data.journalAlbums.filter(function (item) { return item.status === 'published'; });
+      const currentIdx = allAlbums.findIndex(function (item) { return item.slug === album.slug; });
+      const prevAlbum = allAlbums[(currentIdx - 1 + allAlbums.length) % allAlbums.length];
+      const nextAlbum = allAlbums[(currentIdx + 1) % allAlbums.length];
+
+      const pager = document.getElementById('album-pager');
+      pager.innerHTML = '<a class="btn btn-ghost" href="album.html?slug=' + encodeURIComponent(prevAlbum.slug) + '">← ' + prevAlbum.venue + '</a>'
+        + '<a class="btn btn-primary" href="album.html?slug=' + encodeURIComponent(nextAlbum.slug) + '">' + nextAlbum.venue + ' →</a>';
+
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightbox-image');
+      const lightboxCaption = document.getElementById('lightbox-caption');
+      const closeBtn = document.getElementById('lightbox-close');
+      const prevBtn = document.getElementById('lightbox-prev');
+      const nextBtn = document.getElementById('lightbox-next');
+
+      let activeIndex = -1;
+
+      const openLightbox = function (index) {
+        activeIndex = index;
+        const img = albumImages[activeIndex];
+        if (!img) return;
+
+        lightboxImage.src = img.src;
+        lightboxImage.alt = img.alt;
+        lightboxCaption.textContent = img.caption || '';
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+
+        const next = albumImages[(activeIndex + 1) % albumImages.length];
+        const prev = albumImages[(activeIndex - 1 + albumImages.length) % albumImages.length];
+        new Image().src = next.src;
+        new Image().src = prev.src;
+      };
+
+      const closeLightbox = function () {
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      };
+
+      const step = function (direction) {
+        if (activeIndex === -1) return;
+        activeIndex = (activeIndex + direction + albumImages.length) % albumImages.length;
+        openLightbox(activeIndex);
+      };
+
+      gallery.querySelectorAll('.album-tile').forEach(function (tile) {
+        tile.addEventListener('click', function () {
+          openLightbox(Number(tile.getAttribute('data-index')));
+        });
+      });
+
+      closeBtn.addEventListener('click', closeLightbox);
+      prevBtn.addEventListener('click', function () { step(-1); });
+      nextBtn.addEventListener('click', function () { step(1); });
+
+      lightbox.addEventListener('click', function (event) {
+        if (event.target === lightbox) closeLightbox();
+      });
+
+      window.addEventListener('keydown', function (event) {
+        if (!lightbox.classList.contains('open')) return;
+        if (event.key === 'Escape') closeLightbox();
+        if (event.key === 'ArrowLeft') step(-1);
+        if (event.key === 'ArrowRight') step(1);
+      });
+    });
+  </script>
+</body>
+
+</html>

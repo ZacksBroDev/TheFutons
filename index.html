@@ -4,738 +4,305 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/styles/style.css" />
-  <link rel="icon" type="image/png" href="/assets/icons/Futons_Logo-04.PNG" />
-  <title>The Futons</title>
-  <style>
-    @media (max-width: 786px) {
-      .hero {
-        height: 50vh !important;
-        min-height: 350px !important;
-      }
-
-      #title-img {
-        width: 140px !important;
-      }
-    }
-  </style>
+  <meta name="description"
+    content="The Futons: Denver three-piece with loud live shows, new releases, and a dark editorial photo journal." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="icon" type="image/png" href="assets/icons/Futons_Logo-04.PNG" />
+  <title>The Futons | Live In The Smoke</title>
+  <script src="assets/data/site-data.js" defer></script>
 </head>
 
-<body id="home">
-  <header>
-    <div class="logo">
-      <img src="/assets/icons/Futons_Logo-04.PNG" alt="The Futons Logo" />
-    </div>
-    <nav>
-      <ul>
-        <li><a class="navBar" href="#music">Music</a></li>
-        <li><a class="navBar" href="#gallery">Gallery</a></li>
-        <li><a class="navBar" href="#contact-form">Contact</a></li>
-      </ul>
+<body>
+  <div class="site-grain" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <a class="brand-lockup" href="#top" aria-label="The Futons home">
+      <img src="assets/icons/Futons_Logo-04.PNG" alt="The Futons logo" />
+    </a>
+
+    <button class="menu-button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+      <a href="#shows">Shows</a>
+      <a href="#music">Music</a>
+      <a href="#journal">Journal</a>
+      <a href="#contact">Contact</a>
     </nav>
-    <div class="menu-trigger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
   </header>
 
-  <div class="mobile-menu-overlay"></div>
-  <div class="mobile-menu">
-    <div class="menu-trigger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <ul>
-      <li><a href="#music">Music</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#contact-form">Contact</a></li>
-    </ul>
-  </div>
-
   <main>
-    <section class="hero">
-      <div class="hero-content">
-        <img id="title-img" src="/assets/icons/Futons_Logo-04.PNG" loading="eager" alt="The Futons Logo" />
-        <h2>3-Piece Furniture Set From Denver, CO</h2>
-        <a href="https://open.spotify.com/artist/3AjiZYcWC5MOwgLzwx5hIP" class="btn" id="title-btn">Listen on
-          Spotify</a>
-      </div>
-    </section>
+    <section class="hero section-shell" aria-labelledby="hero-title">
+      <div class="hero-media" role="img" aria-label="The Futons live on stage"></div>
 
-    <section class="wrapper" id="music">
-      <div class="section">
-        <h2>Latest Releases</h2>
-        <div class="music-list">
-          <div class="music-item">
-            <h3>Skeuomorph</h3>
-            <p>Release Date:</p>
-            <p>Genre: Indie Pop</p>
-            <a href="https://open.spotify.com/track/3F4bilF6RN2IaSsQrNs4Vr" class="btn" id="btn-music">Listen Now</a>
-          </div>
-          <div class="music-item">
-            <h3>Wematanye</h3>
-            <p>Release Date:</p>
-            <p>Genre: Indie Rock</p>
-            <a href="https://open.spotify.com/track/2K5s4yXx7M2GszC2XZ0mDv" class="btn" id="btn-music">Listen Now</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="section concerts">
-        <h2>Upcoming Concerts</h2>
-        <div class="concert-list">
-          <div class="concert-item">
-            <div>
-              <h3>Denver Music Festival</h3>
-              <p>Date: June 15, 2025</p>
-              <p>Venue: Downtown Denver Park</p>
-            </div>
-            <a href="https://open.spotify.com/track/3F4bilF6RN2IaSsQrNs4Vr" class="btn" id="book-now">Book Now</a>
-          </div>
-          <div class="concert-item">
-            <div>
-              <h3>Denver Music Festival</h3>
-              <p>Date: June 15, 2025</p>
-              <p>Venue: Downtown Denver Park</p>
-            </div>
-            <a href="https://open.spotify.com/track/3F4bilF6RN2IaSsQrNs4Vr" class="btn" id="book-now">Book Now</a>
-          </div>
-          <div class="concert-item">
-            <div>
-              <h3>Indie Night at The Bluebird</h3>
-              <p>Date: August 10, 2025</p>
-              <p>Venue: The Bluebird Theater</p>
-            </div>
-            <a href="https://open.spotify.com/track/3F4bilF6RN2IaSsQrNs4Vr" class="btn" id="book-now">Book Now</a>
-          </div>
-        </div>
-      </div>
-
-      <form action="https://api.web3forms.com/submit" method="POST" class="section book-now-form"
-        value="Attending Concert">
-        <input type="hidden" name="access_key" value="e572cbd3-6837-4195-bc58-8b446a06c8cc" />
-        <input type="text" name="name" placeholder="Your Name" required />
-        <textarea name="message" placeholder="Your Message" required>
-I'll Be Attending This Event</textarea>
-        <button type="submit" class="btn">Send Message</button>
-      </form>
-    </section>
-
-    <section class="wrapper" id="about">
-      <div class="section" id="about-content">
-        <h3>About Us</h3>
+      <div class="hero-copy stagger">
+        <p class="eyebrow">Denver, CO | 3-piece | live-first alt rock</p>
+        <h1 id="hero-title">SHOWS FIRST.<br />EVERYTHING ELSE AFTER.</h1>
         <p>
-          The Futons are an indie band with two releases and a cozy vibe. We
-          make music from where we feel most at home—on the couch.
+          The Futons are built for crowded rooms, clipped amps, and late sets. Follow for tickets, drops, and next-night
+          momentum.
         </p>
-        <div class="band-members">
-          <div class="member-card">
-            <div class="member-image">
-              <img
-                src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254124/futons/Concert2/Concert_2_Concert2_17-DSCF5299.jpg"
-                alt="Antonio Tabangay" />
-            </div>
-            <div class="member-content">
-              <h4>Antonio Tabangay</h4>
-              <p class="member-role">Singer</p>
-              <p class="member-bio">
-                Antonio Tabangay is a talented bassist who brings the groove to our sound. With years of experience and
-                a deep passion for music, Antonio creates bass lines that are the foundation of The Futons' unique
-                sound. His playing style blends technical precision with emotional depth, making every performance
-                memorable. When he's not on stage, you can find him exploring new music or jamming with fellow
-                musicians.
-              </p>
-            </div>
-          </div>
 
-          <div class="member-card">
-            <div class="member-image">
-              <img
-                src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254135/futons/Concert2/Concert_2_Concert2_22-DSCF5305.jpg"
-                alt="Kento Yoshikawa" />
-            </div>
-            <div class="member-content">
-              <h4>Kento Yoshikawa</h4>
-              <p class="member-role">Guitar</p>
-              <p class="member-bio">
-                Mr. Yoshikawa is a Denver Local by way of Japan. Kento has played in an array of bands in the metro area
-                (Maxis Mirror,
-                Hair Eater, Painted Goya). While he plays guitar and bass on this project, Kenny is a versatile musician
-                and can play
-                anything handed to him.
-              </p>
-            </div>
-          </div>
-
-          <div class="member-card">
-            <div class="member-image">
-              <img
-                src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254126/futons/Concert2/Concert_2_Concert2_18-DSCF5301.jpg"
-                alt="3rd member" />
-            </div>
-            <div class="member-content">
-              <h4>Kevin Stringer</h4>
-              <p class="member-role">Drums</p>
-              <p class="member-bio">
-                Kevin is a Denver Local by way of Florida, Maine, Virginia, and Washington, D.C. A simple Duran Duran
-                discovery sparked
-                his iconic, creative drum sound. Kevin and Tony went to high school together, jamming and playing music,
-                until he moved
-                away for college.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="section" id="gallery">
-        <h3>Gallery</h3>
-
-        <!-- Album Cover View (Compressed) -->
-        <div class="albums-grid">
-          <!-- Lion's Lair Album -->
-          <div class="album-cover" data-album="lions-lair-2025">
-            <div class="album-cover-image">
-              <img
-                src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765258746/futons/LionsDen/IMG_1879.jpg"
-                alt="Lion's Lair Performance - Aug 2025" />
-              <div class="album-overlay">
-                <div class="album-info">
-                  <h4>Lion's Lair - Aug 2025</h4>
-                  <p>20 Photos</p>
-                  <button class="view-album-btn">View Album</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- More album covers can be added here -->
-          <div class="album-cover" data-album="idk-2025">
-            <div class="album-cover-image">
-              <img
-                src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254124/futons/Concert2/Concert_2_Concert2_17-DSCF5299.jpg"
-                alt="Concert 2 - Aug 2025" />
-              <div class="album-overlay">
-                <div class="album-info">
-                  <h4>idk - idk 2025</h4>
-                  <p>40 Photos</p>
-                  <button class="view-album-btn">View Album</button>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#shows">Get Tickets</a>
+          <a class="btn btn-ghost" href="https://open.spotify.com/artist/3AjiZYcWC5MOwgLzwx5hIP" target="_blank"
+            rel="noopener noreferrer">Listen Now</a>
         </div>
 
-        <!-- Album Detail Views -->
-        <!-- Lion's Lair Album Detail -->
-        <div class="album-detail" id="album-detail-lions-lair-2025" style="display: none">
-          <div class="album-detail-header">
-            <button class="back-to-albums" onclick="backToAlbums()">
-              ← Back to Albums
-            </button>
-            <h4>Lion's Lair Performance - August 14, 2025</h4>
-            <p>
-              Our epic performance at Lion's Lair! Amazing crowd and energy.
-            </p>
-          </div>
+        <ul class="statline" aria-label="Band highlights">
+          <li>
+            <span class="label">Next room</span>
+            <strong>APR 04</strong>
+          </li>
+          <li>
+            <span class="label">Latest single</span>
+            <strong>Skeuomorph</strong>
+          </li>
+          <li>
+            <span class="label">Status</span>
+            <strong>Active</strong>
+          </li>
+        </ul>
 
-          <!-- Thumbnail Grid -->
-          <div class="thumbnail-grid">
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765258746/futons/LionsDen/IMG_1879.jpg"
-              alt="Lion's Lair 08-14-2025 - Performance" onclick="openLightbox(this, 'lions-lair-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765258747/futons/LionsDen/IMG_1881.jpg"
-              alt="Lion's Lair 08-14-2025 - Stage Setup" onclick="openLightbox(this, 'lions-lair-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765258751/futons/LionsDen/IMG_1896.jpg"
-              alt="Lion's Lair 08-14-2025 - Crowd Energy" onclick="openLightbox(this, 'lions-lair-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765258751/futons/LionsDen/IMG_1897.jpg"
-              alt="Lion's Lair 08-14-2025 - Guitar Solo" onclick="openLightbox(this, 'lions-lair-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765258752/futons/LionsDen/IMG_1898.jpg"
-              alt="Lion's Lair 08-14-2025 - Band Unity" onclick="openLightbox(this, 'lions-lair-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765258753/futons/LionsDen/IMG_1899.jpg"
-              alt="Lion's Lair 08-14-2025 - Live Action" onclick="openLightbox(this, 'lions-lair-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765258754/futons/LionsDen/IMG_1901.jpg"
-              alt="Lion's Lair 08-14-2025 - Audience" onclick="openLightbox(this, 'lions-lair-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765258756/futons/LionsDen/IMG_1904.jpg"
-              alt="Lion's Lair 08-14-2025 - Bass Drop" onclick="openLightbox(this, 'lions-lair-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765258757/futons/LionsDen/IMG_1911.jpg"
-              alt="Lion's Lair 08-14-2025 - Spotlight" onclick="openLightbox(this, 'lions-lair-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765258758/futons/LionsDen/IMG_1912.jpg"
-              alt="Lion's Lair 08-14-2025 - Drums" onclick="openLightbox(this, 'lions-lair-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765258758/futons/LionsDen/IMG_1914.jpg"
-              alt="Lion's Lair 08-14-2025 - Vocals" onclick="openLightbox(this, 'lions-lair-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765258759/futons/LionsDen/IMG_1916.jpg"
-              alt="Lion's Lair 08-14-2025 - Finale" onclick="openLightbox(this, 'lions-lair-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765258760/futons/LionsDen/IMG_1917.jpg"
-              alt="Lion's Lair 08-14-2025 - Thank You" onclick="openLightbox(this, 'lions-lair-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765258761/futons/LionsDen/IMG_1928.jpg"
-              alt="Lion's Lair 08-14-2025 - Backstage" onclick="openLightbox(this, 'lions-lair-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765258762/futons/LionsDen/IMG_1933.jpg"
-              alt="Lion's Lair 08-14-2025 - Setup" onclick="openLightbox(this, 'lions-lair-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765258763/futons/LionsDen/IMG_1939.jpg"
-              alt="Lion's Lair 08-14-2025 - Sound Check" onclick="openLightbox(this, 'lions-lair-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765258765/futons/LionsDen/IMG_1941.jpg"
-              alt="Lion's Lair 08-14-2025 - Pre-Show" onclick="openLightbox(this, 'lions-lair-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765258765/futons/LionsDen/IMG_1943.jpg"
-              alt="Lion's Lair 08-14-2025 - Equipment" onclick="openLightbox(this, 'lions-lair-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765258766/futons/LionsDen/IMG_1951.jpg"
-              alt="Lion's Lair 08-14-2025 - Venue" onclick="openLightbox(this, 'lions-lair-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765258767/futons/LionsDen/IMG_1956.jpg"
-              alt="Lion's Lair 08-14-2025 - Memories" onclick="openLightbox(this, 'lions-lair-2025')" />
-          </div>
+        <div class="hero-ticker" aria-label="Upcoming show ticker" id="hero-ticker">
+          <!-- Populated by script -->
         </div>
-
-        <!-- New Album Detail -->
-        <div class="album-detail" id="album-detail-other-2025" style="display: none">
-          <div class="album-detail-header">
-            <button class="back-to-albums" onclick="backToAlbums()">
-              ← Back to Albums
-            </button>
-            <h4>Other Performance - 2025</h4>
-            <p>Another great performance! Add your new photos here.</p>
-          </div>
-
-          <!-- Thumbnail Grid for New Album -->
-          <div class="thumbnail-grid">
-            <!-- Add your new photos here - replace these placeholder images with actual new photos -->
-            onclick="openLightbox(this, 'other-2025')" />
-            onclick="openLightbox(this, 'other-2025')" />
-            onclick="openLightbox(this, 'other-2025')" />
-            onclick="openLightbox(this, 'other-2025')" />
-            onclick="openLightbox(this, 'other-2025')" />
-            onclick="openLightbox(this, 'other-2025')" />
-            <!-- Add more images as needed -->
-          </div>
-        </div>
-        <div class="album-detail" id="album-detail-idk-2025" style="display: none">
-          <div class="album-detail-header">
-            <button class="back-to-albums" onclick="backToAlbums()">
-              ← Back to Albums
-            </button>
-            <h4>IDK Performance - 2025</h4>
-            <p>Another amazing performance with 40+ photos from our Concert2 collection!</p>
-          </div>
-
-          <!-- Thumbnail Grid for IDK Album -->
-          <div class="thumbnail-grid">
-            <!-- Concert2 photos -->
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254110/futons/Concert2/Concert_2_Concert2_1-DSCF5279.jpg"
-              alt="IDK Performance 2025 - Photo 1" onclick="openLightbox(this, 'idk-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254111/futons/Concert2/Concert_2_Concert2_10-DSCF5290.jpg"
-              alt="IDK Performance 2025 - Photo 2" onclick="openLightbox(this, 'idk-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254113/futons/Concert2/Concert_2_Concert2_11-DSCF5291.jpg"
-              alt="IDK Performance 2025 - Photo 3" onclick="openLightbox(this, 'idk-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254115/futons/Concert2/Concert_2_Concert2_12-DSCF5292.jpg"
-              alt="IDK Performance 2025 - Photo 4" onclick="openLightbox(this, 'idk-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254117/futons/Concert2/Concert_2_Concert2_13-DSCF5294.jpg"
-              alt="IDK Performance 2025 - Photo 5" onclick="openLightbox(this, 'idk-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254119/futons/Concert2/Concert_2_Concert2_14-DSCF5295.jpg"
-              alt="IDK Performance 2025 - Photo 6" onclick="openLightbox(this, 'idk-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254120/futons/Concert2/Concert_2_Concert2_15-DSCF5296.jpg"
-              alt="IDK Performance 2025 - Photo 7" onclick="openLightbox(this, 'idk-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254122/futons/Concert2/Concert_2_Concert2_16-DSCF5297.jpg"
-              alt="IDK Performance 2025 - Photo 8" onclick="openLightbox(this, 'idk-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254124/futons/Concert2/Concert_2_Concert2_17-DSCF5299.jpg"
-              alt="IDK Performance 2025 - Photo 9" onclick="openLightbox(this, 'idk-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254126/futons/Concert2/Concert_2_Concert2_18-DSCF5301.jpg"
-              alt="IDK Performance 2025 - Photo 10" onclick="openLightbox(this, 'idk-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254128/futons/Concert2/Concert_2_Concert2_19-DSCF5302.jpg"
-              alt="IDK Performance 2025 - Photo 11" onclick="openLightbox(this, 'idk-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254131/futons/Concert2/Concert_2_Concert2_20-DSCF5303.jpg"
-              alt="IDK Performance 2025 - Photo 12" onclick="openLightbox(this, 'idk-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254129/futons/Concert2/Concert_2_Concert2_2-DSCF5281.jpg"
-              alt="IDK Performance 2025 - Photo 13" onclick="openLightbox(this, 'idk-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254133/futons/Concert2/Concert_2_Concert2_21-DSCF5304.jpg"
-              alt="IDK Performance 2025 - Photo 14" onclick="openLightbox(this, 'idk-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254135/futons/Concert2/Concert_2_Concert2_22-DSCF5305.jpg"
-              alt="IDK Performance 2025 - Photo 15" onclick="openLightbox(this, 'idk-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254136/futons/Concert2/Concert_2_Concert2_23-DSCF5307.jpg"
-              alt="IDK Performance 2025 - Photo 16" onclick="openLightbox(this, 'idk-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254138/futons/Concert2/Concert_2_Concert2_24-DSCF5308.jpg"
-              alt="IDK Performance 2025 - Photo 17" onclick="openLightbox(this, 'idk-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254139/futons/Concert2/Concert_2_Concert2_25-DSCF5309.jpg"
-              alt="IDK Performance 2025 - Photo 18" onclick="openLightbox(this, 'idk-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254141/futons/Concert2/Concert_2_Concert2_26-DSCF5310.jpg"
-              alt="IDK Performance 2025 - Photo 19" onclick="openLightbox(this, 'idk-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254143/futons/Concert2/Concert_2_Concert2_27-DSCF5311.jpg"
-              alt="IDK Performance 2025 - Photo 20" onclick="openLightbox(this, 'idk-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254144/futons/Concert2/Concert_2_Concert2_28-DSCF5320.jpg"
-              alt="IDK Performance 2025 - Photo 21" onclick="openLightbox(this, 'idk-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254146/futons/Concert2/Concert_2_Concert2_29-DSCF5344.jpg"
-              alt="IDK Performance 2025 - Photo 22" onclick="openLightbox(this, 'idk-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254148/futons/Concert2/Concert_2_Concert2_3-DSCF5282.jpg"
-              alt="IDK Performance 2025 - Photo 23" onclick="openLightbox(this, 'idk-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254149/futons/Concert2/Concert_2_Concert2_30-DSCF5366.jpg"
-              alt="IDK Performance 2025 - Photo 24" onclick="openLightbox(this, 'idk-2025')" />
-            <img
-              src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254153/futons/Concert2/Concert_2_Concert2_31-DSCF5371.jpg"
-              alt="IDK Performance 2025 - Photo 25" onclick="openLightbox(this, 'idk-2025')" />
-            <!-- Add more images as needed -->
-          </div>
-        </div>
-      </div>
-
-      <!-- Lightbox Modal -->
-      <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
-        <img class="lightbox-content" id="lightbox-img" />
-        <div class="lightbox-caption" id="lightbox-caption"></div>
-        <button class="lightbox-nav prev" onclick="event.stopPropagation(); prevImage()">
-          &#10094;
-        </button>
-        <button class="lightbox-nav next" onclick="event.stopPropagation(); nextImage()">
-          &#10095;
-        </button>
       </div>
     </section>
 
-    <section class="wrapper" id="bottom">
-      <div class="contact">
-        <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" id="contact-form"
-          value="Contact Form From The Futons">
-          <input type="hidden" name="access_key" value="e572cbd3-6837-4195-bc58-8b446a06c8cc" />
-          <h1 id="title">CONTACT US</h1>
-
-          <div class="input-group">
-            <input id="name" type="text" name="name" required />
-            <label for="name" class="floating-label">Name</label>
-          </div>
-
-          <div class="input-group">
-            <input id="email" type="email" name="email" required />
-            <label for="email" class="floating-label">Email</label>
-          </div>
-
-          <div class="input-group">
-            <input type="tel" id="phone" name="phone" required />
-            <label for="phone" class="floating-label">Phone</label>
-          </div>
-
-          <div class="input-group">
-            <input id="subject" type="text" name="subject" required />
-            <label for="subject" class="floating-label">Subject</label>
-          </div>
-
-          <div class="input-group textarea-group">
-            <textarea id="message" name="message" required></textarea>
-            <label for="message" class="floating-label">Message</label>
-          </div>
-
-          <button id="submit" class="btn" id="login-btn">Submit</button>
-        </form>
+    <section class="section-shell shows" id="shows" aria-labelledby="shows-title">
+      <div class="section-head stagger">
+        <p class="eyebrow">Heartbeat</p>
+        <h2 id="shows-title">Upcoming Shows</h2>
+        <p class="section-intro">Tour-poster hierarchy: date, room, city, ticket. No friction.</p>
       </div>
 
-      <div class="links">
-        <a id="insta" href="https://www.instagram.com/futon.s/"><img src="/assets/icons/insta2.png"
-            alt="Instagram" /></a>
-        <a id="spotify" href="https://open.spotify.com/artist/3AjiZYcWC5MOwgLzwx5hIP"><img
-            src="/assets/icons/spotify.png" alt="Spotify" /></a>
-        <a id="youtube" href="https://www.youtube.com/@futonsband"><img src="/assets/icons/youtube.png"
-            alt="YouTube" /></a>
+      <div class="tour-grid" id="shows-grid">
+        <!-- Populated by script -->
+      </div>
+    </section>
+
+    <section class="section-shell music" id="music" aria-labelledby="music-title">
+      <div class="section-head stagger">
+        <p class="eyebrow">Priority 02</p>
+        <h2 id="music-title">Latest Release</h2>
+        <p class="section-intro">One dominant release feature, then a clean archive rail.</p>
+      </div>
+
+      <div class="release-layout">
+        <article class="release-feature stagger" aria-label="Featured release Skeuomorph">
+          <img
+            src="https://res.cloudinary.com/djnazqqgr/image/upload/f_auto,q_auto/v1765254141/futons/Concert2/Concert_2_Concert2_26-DSCF5310.jpg"
+            alt="The Futons performing live" />
+          <div>
+            <p class="release-kicker">Now streaming</p>
+            <h3>Skeuomorph</h3>
+            <p>
+              Tight rhythm section, scorched guitars, and a vocal that sits between pressure and melody. Written to
+              explode live first.
+            </p>
+            <ul class="release-meta" aria-label="Release metadata">
+              <li>Single</li>
+              <li>2025</li>
+              <li>Alt Rock</li>
+            </ul>
+            <div class="inline-actions">
+              <a class="btn btn-primary" href="https://open.spotify.com/track/3F4bilF6RN2IaSsQrNs4Vr" target="_blank"
+                rel="noopener noreferrer">Spotify</a>
+              <a class="btn btn-ghost" href="https://www.youtube.com/@futonsband" target="_blank"
+                rel="noopener noreferrer">YouTube</a>
+            </div>
+          </div>
+        </article>
+
+        <aside class="release-stack stagger" aria-label="Release archive">
+          <h4>Release Archive</h4>
+          <ul>
+            <li>
+              <span>Wematanye</span>
+              <a href="https://open.spotify.com/track/2K5s4yXx7M2GszC2XZ0mDv" target="_blank"
+                rel="noopener noreferrer">Listen</a>
+            </li>
+            <li>
+              <span>Live Session Cut</span>
+              <a href="https://open.spotify.com/artist/3AjiZYcWC5MOwgLzwx5hIP" target="_blank"
+                rel="noopener noreferrer">Open</a>
+            </li>
+            <li>
+              <span>Band Profile</span>
+              <a href="https://www.youtube.com/@futonsband" target="_blank" rel="noopener noreferrer">Watch</a>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section-shell journal" id="journal" aria-labelledby="journal-title">
+      <div class="section-head stagger">
+        <p class="eyebrow">Photo journal</p>
+        <h2 id="journal-title">From The Pit</h2>
+        <p class="section-intro">Curated live frames only. Full archive lives in a dedicated journal.</p>
+      </div>
+
+      <div class="journal-preview-wrap">
+        <div class="journal-grid" id="journal-preview-grid">
+          <!-- Populated by script -->
+        </div>
+        <aside class="journal-preview-cta stagger">
+          <p class="eyebrow">Live archive</p>
+          <h3>Every room. Every night. Fully indexed.</h3>
+          <p>Browse complete albums by venue and date. The homepage stays curated; the archive holds the full history.
+          </p>
+          <a class="btn btn-primary" href="journal.html">Open Full Journal</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section-shell contact" id="contact" aria-labelledby="contact-title">
+      <div class="contact-layout">
+        <div class="contact-copy stagger">
+          <p class="eyebrow">Operations</p>
+          <h2 id="contact-title">Booking, Press, Updates</h2>
+          <p>
+            Use this block for live bookings, press requests, and fast updates around ticket drops or room changes.
+          </p>
+          <div class="ops-grid" aria-label="Contact channels">
+            <article>
+              <h3>Booking</h3>
+              <p>Preferred: venue name, date, lineup, compensation details.</p>
+            </article>
+            <article>
+              <h3>Press</h3>
+              <p>Include publication, deadline, and requested assets.</p>
+            </article>
+            <article>
+              <h3>Live Updates</h3>
+              <p>Follow socials for same-day set times and ticket links.</p>
+            </article>
+          </div>
+          <div class="social-row">
+            <a href="https://www.instagram.com/futon.s/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://open.spotify.com/artist/3AjiZYcWC5MOwgLzwx5hIP" target="_blank"
+              rel="noopener noreferrer">Spotify</a>
+            <a href="https://www.youtube.com/@futonsband" target="_blank" rel="noopener noreferrer">YouTube</a>
+          </div>
+          <p class="future-note">Future-ready: limited merch drops will live under this operations rail.</p>
+        </div>
+
+        <form class="contact-form stagger" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="e572cbd3-6837-4195-bc58-8b446a06c8cc" />
+          <label>
+            Name
+            <input type="text" name="name" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            Subject
+            <input type="text" name="subject" required />
+          </label>
+          <label>
+            Message
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary">Send Inquiry</button>
+        </form>
       </div>
     </section>
   </main>
-  <footer>
-    <p>© 2025 The Futons. Developed by ZackFullStack</p>
+
+  <footer class="site-footer">
+    <img src="assets/icons/Futons_Logo-04.PNG" alt="The Futons logo" />
+    <p>© 2026 The Futons</p>
+    <a href="#top">Back to top</a>
   </footer>
 
   <script>
-    // Album and lightbox functionality
-    let currentImageIndex = 0;
-    let galleryImages = [];
-    let currentAlbum = "";
+    document.addEventListener('DOMContentLoaded', function () {
+      const shows = (window.FutonsData && window.FutonsData.shows) || [];
+      const albums = (window.FutonsData && window.FutonsData.journalAlbums) || [];
+      const images = (window.FutonsData && window.FutonsData.journalImages) || [];
 
-    // Initialize gallery when page loads
-    document.addEventListener("DOMContentLoaded", function () {
-      updateGalleryImages();
-      initializeAlbumCovers();
-    });
-
-    function updateGalleryImages() {
-      // Get all visible images from the current active album detail view
-      const activeAlbumDetail = document.querySelector(
-        '.album-detail[style*="block"]'
-      );
-      if (activeAlbumDetail) {
-        galleryImages = Array.from(
-          activeAlbumDetail.querySelectorAll(".thumbnail-grid img")
-        );
+      // Render ticker
+      const ticker = document.getElementById('hero-ticker');
+      if (ticker) {
+        ticker.innerHTML = shows.slice(0, 3).map(s => '<span>' + s.month + ' ' + s.day + ' · ' + s.venue.toUpperCase() + '</span>').join('');
       }
-    }
 
-    function initializeAlbumCovers() {
-      // Add click event listeners to album covers
-      document.querySelectorAll(".album-cover").forEach((cover) => {
-        cover.addEventListener("click", function () {
-          const albumId = this.getAttribute("data-album");
-          viewAlbum(albumId);
+      // Render shows
+      const grid = document.getElementById('shows-grid');
+      if (grid) {
+        grid.innerHTML = shows.map((s, i) => {
+          const featured = i === 0 ? 'show-card-featured' : '';
+          const btn = i === 0 ? 'btn-primary' : 'btn-ghost';
+          const note = s.note ? '<p class="show-note">' + s.note + '</p>' : '';
+          const address = s.address ? '<p class="show-note">' + s.address + '</p>' : '';
+          const venueLink = s.venueUrl ? '<a class="btn btn-ghost" href="' + s.venueUrl + '" target="_blank" rel="noopener noreferrer">Venue</a>' : '';
+          return '<article class="show-card ' + featured + ' stagger"><div class="date-block" aria-label="Date ' + s.month + ' ' + s.day + '">' + s.month + ' <span>' + s.day + '</span></div><div><p class="show-meta">' + s.meta + '</p><h3>' + s.venue + '</h3><p class="show-location">' + s.city + '</p>' + address + note + '</div><div class="inline-actions"><a class="btn ' + btn + '" href="' + s.ticketUrl + '" target="_blank" rel="noopener noreferrer">Tickets + Info</a>' + venueLink + '</div></article>';
+        }).join('');
+      }
+
+      // Render curated homepage journal preview from Concert Room II
+      const previewGrid = document.getElementById('journal-preview-grid');
+      if (previewGrid) {
+        const concertRoomPreviewIds = ['cr2-5344', 'cr2-5311', 'cr2-5320'];
+        const concertRoomImages = images.filter(function (img) {
+          return img.albumSlug === 'concert-room-2-2025-11';
         });
-      });
 
-      // Add click event listeners to "View Album" buttons
-      document.querySelectorAll(".view-album-btn").forEach((btn) => {
-        btn.addEventListener("click", function (e) {
-          e.stopPropagation();
-          const albumId =
-            this.closest(".album-cover").getAttribute("data-album");
-          viewAlbum(albumId);
-        });
-      });
-    }
+        const featuredImages = concertRoomPreviewIds
+          .map(function (id) {
+            return concertRoomImages.find(function (img) { return img.id === id; });
+          })
+          .filter(Boolean);
 
-    // Open lightbox with clicked image
-    function openLightbox(img, albumId) {
-      // Set current album context
-      currentAlbum = albumId;
-      updateGalleryImages();
+        const fallbackImages = concertRoomImages.slice(0, 3);
+        const previewImages = featuredImages.length ? featuredImages : fallbackImages;
 
-      const lightbox = document.getElementById("lightbox");
-      const lightboxImg = document.getElementById("lightbox-img");
-      const lightboxCaption = document.getElementById("lightbox-caption");
-
-      // Find the index of clicked image
-      currentImageIndex = galleryImages.indexOf(img);
-
-      // Set the image and caption
-      lightboxImg.src = img.src;
-      lightboxCaption.textContent = img.alt;
-
-      // Show the lightbox
-      lightbox.style.display = "block";
-      document.body.style.overflow = "hidden"; // Prevent background scrolling
-    }
-
-    // Close lightbox
-    function closeLightbox() {
-      const lightbox = document.getElementById("lightbox");
-      lightbox.style.display = "none";
-      document.body.style.overflow = "auto"; // Restore scrolling
-    }
-
-    // Navigate to next image
-    function nextImage() {
-      currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-      updateLightboxImage();
-    }
-
-    // Navigate to previous image
-    function prevImage() {
-      currentImageIndex =
-        (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
-      updateLightboxImage();
-    }
-
-    // Update lightbox image
-    function updateLightboxImage() {
-      const lightboxImg = document.getElementById("lightbox-img");
-      const lightboxCaption = document.getElementById("lightbox-caption");
-      const currentImg = galleryImages[currentImageIndex];
-
-      lightboxImg.src = currentImg.src;
-      lightboxCaption.textContent = currentImg.alt;
-    }
-
-    // Album Cover functionality
-    function viewAlbum(albumId) {
-      // Hide album covers grid
-      document.querySelector(".albums-grid").style.display = "none";
-
-      // Show album detail view
-      document.getElementById(`album-detail-${albumId}`).style.display =
-        "block";
-
-      // Update gallery images for lightbox
-      updateGalleryImages();
-    }
-
-    function backToAlbums() {
-      // Hide all album detail views
-      document.querySelectorAll(".album-detail").forEach((detail) => {
-        detail.style.display = "none";
-      });
-
-      // Show album covers grid
-      document.querySelector(".albums-grid").style.display = "flex";
-    }
-
-    // Keyboard navigation
-    document.addEventListener("keydown", function (e) {
-      const lightbox = document.getElementById("lightbox");
-      if (lightbox.style.display === "block") {
-        switch (e.key) {
-          case "Escape":
-            closeLightbox();
-            break;
-          case "ArrowRight":
-            nextImage();
-            break;
-          case "ArrowLeft":
-            prevImage();
-            break;
-        }
+        previewGrid.innerHTML = previewImages.map(function (img, index) {
+          const shape = index === 0 ? 'wide' : '';
+          const lead = index === 0 ? ' preview-lead' : '';
+          return '<figure class="journal-shot ' + shape + lead + ' stagger">'
+            + '<img src="' + img.src + '" alt="' + img.alt + '" loading="lazy" />'
+            + '<figcaption>' + (img.caption || 'Live journal frame') + '</figcaption>'
+            + '</figure>';
+        }).join('');
       }
     });
 
-    // Contact form functionality
-    document
-      .getElementById("contact-form")
-      .addEventListener("submit", function (e) {
-        setTimeout(() => {
-          this.reset();
-        }, 1);
+    // Menu toggle
+    const menuButton = document.querySelector('.menu-button');
+    const siteNav = document.querySelector('#site-nav');
+    if (menuButton && siteNav) {
+      menuButton.addEventListener('click', function () {
+        const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+        menuButton.setAttribute('aria-expanded', String(!expanded));
+        siteNav.classList.toggle('open');
       });
-
-    // Book Now form functionality
-    const bookNowButtons = document.querySelectorAll("#book-now");
-    const bookNowForm = document.querySelector(".book-now-form");
-    const messageTextarea = bookNowForm
-      ? bookNowForm.querySelector("textarea[name='message']")
-      : null;
-
-    bookNowButtons.forEach((button) => {
-      button.addEventListener("click", function (e) {
-        e.preventDefault();
-        const concertItem = this.closest(".concert-item");
-        const concertName = concertItem.querySelector("h3").textContent;
-        const concertDate = concertItem.querySelector("p").textContent;
-        const concertVenue = concertItem.querySelectorAll("p")[1].textContent;
-
-        if (messageTextarea) {
-          messageTextarea.value = `I'll be attending ${concertName} on ${concertDate} at ${concertVenue}. Please send me more details!`;
-        }
-
-        if (bookNowForm) {
-          bookNowForm.style.display = "flex";
-          setTimeout(() => {
-            bookNowForm.classList.add("show");
-            bookNowForm.scrollIntoView({
-              behavior: "smooth",
-              block: "center",
-            });
-          }, 10);
-        }
-      });
-    });
-
-    if (bookNowForm) {
-      bookNowForm.addEventListener("submit", function (e) {
-        setTimeout(() => {
-          this.reset();
-          this.classList.remove("show");
-          setTimeout(() => {
-            this.style.display = "none";
-          }, 500);
-        }, 1);
+      siteNav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          menuButton.setAttribute('aria-expanded', 'false');
+          siteNav.classList.remove('open');
+        });
       });
     }
 
-    // Mobile menu functionality
-    const menuTrigger = document.querySelector("header .menu-trigger");
-    const mobileMenuTrigger = document.querySelector(
-      ".mobile-menu .menu-trigger"
-    );
-    const mobileMenu = document.querySelector(".mobile-menu");
-    const mobileMenuOverlay = document.querySelector(".mobile-menu-overlay");
-    const mobileMenuLinks = document.querySelectorAll(".mobile-menu a");
-
-    function openMobileMenu() {
-      mobileMenu.classList.add("active");
-      mobileMenuOverlay.classList.add("active");
-      document.body.classList.add("menu-open");
-      setTimeout(() => {
-        if (menuTrigger) menuTrigger.classList.add("active");
-        if (mobileMenuTrigger) mobileMenuTrigger.classList.add("active");
-      }, 500);
-    }
-
-    function closeMobileMenu() {
-      if (menuTrigger) menuTrigger.classList.remove("active");
-      if (mobileMenuTrigger) mobileMenuTrigger.classList.remove("active");
-      mobileMenu.classList.remove("active");
-      mobileMenuOverlay.classList.remove("active");
-      document.body.classList.remove("menu-open");
-    }
-
-    if (menuTrigger) {
-      menuTrigger.addEventListener("click", openMobileMenu);
-    }
-
-    if (mobileMenuTrigger) {
-      mobileMenuTrigger.addEventListener("click", closeMobileMenu);
-    }
-
-    if (mobileMenuOverlay) {
-      mobileMenuOverlay.addEventListener("click", closeMobileMenu);
-    }
-
-    mobileMenuLinks.forEach((link) => {
-      link.addEventListener("click", (e) => {
-        closeMobileMenu();
-        e.preventDefault();
-        const target = document.querySelector(link.getAttribute("href"));
-        if (target) {
-          setTimeout(() => {
-            target.scrollIntoView({ behavior: "smooth", block: "start" });
-          }, 300);
-        }
+    // Form reset
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function () {
+        setTimeout(function () { contactForm.reset(); }, 10);
       });
-    });
-
-    // Smooth scroll for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener("click", function (e) {
-        if (!this.closest(".mobile-menu")) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) {
-            target.scrollIntoView({ behavior: "smooth", block: "start" });
-          }
-        }
-      });
-    });
+    }
   </script>
 </body>
 
