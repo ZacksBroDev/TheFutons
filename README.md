@@ -1,43 +1,57 @@
 # The Futons - Band Website
 
-A clean, simple static website for The Futons band from Denver, CO.
+A static website for The Futons, a band based out of Denver, CO.
+
+<p align="center">
+  <img src="./docs/imgs/hero.png" alt="Hero" width="85%" />
+</p>
 
 ## Features
 
-- **Hero Section**: Eye-catching landing with band logo and Spotify link
-- **Music**: Latest releases with direct Spotify links
-- **Gallery**: Photo gallery with lightbox viewer
-- **About**: Band member information
-- **Concerts**: Upcoming show listings with booking
-- **Contact**: Contact form integration with Web3Forms
+- Hero section with band logo and Spotify link
+- Music page with latest releases and direct Spotify links
+- Photo gallery with lightbox viewer
+- Band member profiles
+- Upcoming show listings with booking info
+- Contact form powered by Web3Forms
+
+## Preview
+
+<p align="center">
+  <img src="./docs/imgs/mobile.png" alt="Mobile Layout" width="320" />
+</p>
+
+<p align="center">
+  <img src="./docs/imgs/shows.png" alt="Shows Page" width="85%" />
+</p>
 
 ## Getting Started
 
-### Simple Setup (Recommended)
-
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/ZacksBroDev/Fotuns.git
 cd Fotuns
 ```
 
 2. Start a local server:
+
 ```bash
-# Using Python (Mac/Linux)
+# Using Python
 python3 -m http.server 3000
 
 # Using Node.js
 npx serve . -p 3000
 ```
 
-3. Open http://localhost:3000 in your browser
+3. Open http://localhost:3000 in your browser.
 
 ## Tech Stack
 
-- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **Styling**: Modern CSS with gradients, animations, and responsive design
-- **Forms**: Web3Forms integration for contact functionality
-- **Hosting**: Static hosting compatible (GitHub Pages, Netlify, Vercel, etc.)
+- HTML5, CSS3, JavaScript (ES6+)
+- Modern CSS with gradients, animations, and responsive design
+- Web3Forms for contact form handling
+- Compatible with static hosts (GitHub Pages, Netlify, Vercel, etc.)
 
 ## Project Structure
 
@@ -47,27 +61,26 @@ npx serve . -p 3000
 │   └── style.css           # All styling
 ├── assets/
 │   ├── icons/              # Logos and social media icons
-│   └── img/               # Band photos and gallery images
-└── README.md              # This file
+│   └── img/                # Band photos and gallery images
+└── README.md               # This file
 ```
 
 ## Customization
 
-- **Colors**: Modify CSS variables in `styles/style.css`
+- **Colors**: Edit CSS variables in `styles/style.css`
 - **Content**: Update text, links, and images in `index.html`
-- **Photos**: Replace images in `assets/img/` folder
-- **Contact Form**: Update Web3Forms access key in the form
+- **Photos**: Replace images in `assets/img/`
+- **Contact Form**: Swap in your Web3Forms access key in the form
 
 ## Deployment
 
-This is a static website that can be deployed to any hosting service:
+This is a static site and can be hosted anywhere:
 
-- **GitHub Pages**: Push to GitHub and enable Pages
-- **Netlify**: Drag and drop the folder or connect to GitHub
-- **Vercel**: Connect to GitHub repository
-- **Traditional hosting**: Upload files to any web server
+- **GitHub Pages**: Push to GitHub and enable Pages in the repo settings
+- **Netlify**: Drag and drop the folder or connect your GitHub repo
+- **Vercel**: Connect directly to the GitHub repository
+- **Traditional hosting**: Upload all files to any web server
 
 ## License
 
 © 2025 The Futons. Developed by ZackFullStack
-
